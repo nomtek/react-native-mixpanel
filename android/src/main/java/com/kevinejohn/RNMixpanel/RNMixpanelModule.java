@@ -10,6 +10,7 @@ import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.ReadableType;
 import com.mixpanel.android.mpmetrics.MixpanelAPI;
+import com.mixpanel.android.mpmetrics.Tweak;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,6 +27,8 @@ import java.util.Map;
 public class RNMixpanelModule extends ReactContextBaseJavaModule implements LifecycleEventListener {
 
     private Map<String, MixpanelAPI> instances;
+
+    private Map<String, Tweak<Boolean>> booleanTweaks = new HashMap();
 
     public RNMixpanelModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -392,6 +395,31 @@ public class RNMixpanelModule extends ReactContextBaseJavaModule implements Life
         }
         synchronized(instance) {
             promise.resolve(instance.getDistinctId());
+        }
+    }
+
+    @ReactMethod
+    public void createBooleanTweak(final String name, boolean defaultValue, final String apiToken, Promise promise) {
+        final MixpanelAPI instance = getInstance(apiToken);
+        if (instance == null) {
+            promise.reject(new Throwable("no mixpanel instance available."));
+            return;
+        }
+        synchronized(instance) {
+            booleanTweaks.put(name, MixpanelAPI.booleanTweak(name, defaultValue));
+        }
+        promise.resolve(null);
+    }
+
+    @ReactMethod
+    public void getBooleanTweak(final String name, final String apiToken, Promise promise) {
+        final MixpanelAPI instance = getInstance(apiToken);
+        if (instance == null) {
+            promise.reject(new Throwable("no mixpanel instance available."));
+            return;
+        }
+        synchronized(instance) {
+            promise.resolve(booleanTweaks.get(name).get());
         }
     }
 }
