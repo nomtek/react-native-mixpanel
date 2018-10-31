@@ -1,3 +1,5 @@
+
+
 // @flow
 'use strict'
 import { NativeModules } from 'react-native'
@@ -194,9 +196,8 @@ export class MixpanelInstance {
     return RNMixpanel.createBooleanTweak(name, defaultValue, this.apiToken)
   }
 
-  getBooleanTweak(name: string): Promise<void> {
+  getBooleanTweak(name: string): Promise<boolean> {
     if (!this.initialized) throw new Error(NO_INSTANCE_ERROR)
-
     return RNMixpanel.getBooleanTweak(name, this.apiToken)
   }
 }
@@ -386,7 +387,7 @@ export default {
     return defaultInstance.createBooleanTweak(name, defaultValue)
   },
 
-  getBooleanTweak(name: string): Promise<void> {
+  getBooleanTweak(name: string): Promise<boolean> {
     if (!defaultInstance) throw new Error(NO_INSTANCE_ERROR)
 
     return defaultInstance.getBooleanTweak(name)
