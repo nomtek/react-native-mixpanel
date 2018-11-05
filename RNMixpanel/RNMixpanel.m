@@ -9,6 +9,8 @@
 
 #import "RNMixpanel.h"
 #import "Mixpanel.h"
+#import "MPTweakStore.h"
+#import "MPTweak.h"
 
 @interface Mixpanel (ReactNative)
 - (void)applicationDidBecomeActive:(NSNotification *)notification;
@@ -269,6 +271,24 @@ RCT_EXPORT_METHOD(reset:(NSString *)apiToken
     NSString *uuid = [[NSUUID UUID] UUIDString];
     [[self getInstance:apiToken] identify:uuid];
     resolve(nil);
+}
+
+// create boolean tweak
+RCT_EXPORT_METHOD(createBooleanTweak:(NSString *)name
+                  defaultValue:(BOOL)defaultValue
+                  apiToken:(NSString *)apiToken
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject) {
+    resolve(nil);
+}
+
+// get boolean tweak
+RCT_EXPORT_METHOD(getBooleanTweak:(NSString *)name
+                  apiToken:(NSString *)apiToken
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject) {
+    MPTweak *tweak = [[MPTweakStore sharedInstance] tweakWithName:name];
+    resolve(tweak.currentValue ?: tweak.defaultValue);
 }
 
 @end
