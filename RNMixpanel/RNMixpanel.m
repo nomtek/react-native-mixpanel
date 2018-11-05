@@ -273,6 +273,15 @@ RCT_EXPORT_METHOD(reset:(NSString *)apiToken
     resolve(nil);
 }
 
+// create boolean tweak
+RCT_EXPORT_METHOD(createBooleanTweak:(NSString *)name
+                  defaultValue:(BOOL)defaultValue
+                  apiToken:(NSString *)apiToken
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject) {
+    resolve(nil);
+}
+
 // get boolean tweak
 RCT_EXPORT_METHOD(getBooleanTweak:(NSString *)name
                   apiToken:(NSString *)apiToken
