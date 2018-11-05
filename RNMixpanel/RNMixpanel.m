@@ -9,7 +9,6 @@
 
 #import "RNMixpanel.h"
 #import "Mixpanel.h"
-#import "MPTweakInline.h"
 #import "MPTweakStore.h"
 #import "MPTweak.h"
 
@@ -271,16 +270,6 @@ RCT_EXPORT_METHOD(reset:(NSString *)apiToken
     [[self getInstance:apiToken] reset];
     NSString *uuid = [[NSUUID UUID] UUIDString];
     [[self getInstance:apiToken] identify:uuid];
-    resolve(nil);
-}
-
-// create boolean tweak
-RCT_EXPORT_METHOD(createBooleanTweak:(NSString *)name
-                  defaultValue:(BOOL)defaultValue
-                  apiToken:(NSString *)apiToken
-                  resolve:(RCTPromiseResolveBlock)resolve
-                  reject:(RCTPromiseRejectBlock)reject) {
-    id tweakValue = MPTweakValue(name, defaultValue);
     resolve(nil);
 }
 

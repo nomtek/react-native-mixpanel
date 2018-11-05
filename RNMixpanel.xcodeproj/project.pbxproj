@@ -40,7 +40,6 @@
 		5EAEEA411F0555B100C6FED8 /* libRNMixpanel-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libRNMixpanel-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		741338A2218C896C00A04F1F /* MPTweak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPTweak.h; sourceTree = "<group>"; };
 		741338A3218C897600A04F1F /* MPTweakStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPTweakStore.h; sourceTree = "<group>"; };
-		741338A4218C898000A04F1F /* MPTweakInline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPTweakInline.h; sourceTree = "<group>"; };
 		FDC64AF01BF1690D0044C1B4 /* libRNMixpanel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNMixpanel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDC64AF31BF1690D0044C1B4 /* RNMixpanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNMixpanel.h; sourceTree = "<group>"; };
 		FDC64AF51BF1690D0044C1B4 /* RNMixpanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNMixpanel.m; sourceTree = "<group>"; };
@@ -94,7 +93,6 @@
 				FDC64AF51BF1690D0044C1B4 /* RNMixpanel.m */,
 				741338A2218C896C00A04F1F /* MPTweak.h */,
 				741338A3218C897600A04F1F /* MPTweakStore.h */,
-				741338A4218C898000A04F1F /* MPTweakInline.h */,
 			);
 			path = RNMixpanel;
 			sourceTree = "<group>";
