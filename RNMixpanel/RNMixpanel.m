@@ -275,13 +275,13 @@ RCT_EXPORT_METHOD(reset:(NSString *)apiToken
 
 // create tweak
 - (void) createTweakWithResolve:(RCTPromiseResolveBlock)resolve
-                         reject:(RCTPromiseRejectBlock)reject) {
+                         reject:(RCTPromiseRejectBlock)reject{
     resolve(nil);
 }
 
 - (void) getTweak:(NSString *)name
           resolve:(RCTPromiseResolveBlock)resolve
-           reject:(RCTPromiseRejectBlock)reject) {
+           reject:(RCTPromiseRejectBlock)reject{
     MPTweak *tweak = [[MPTweakStore sharedInstance] tweakWithName:name];
     resolve(tweak.currentValue ?: tweak.defaultValue);
 }
