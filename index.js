@@ -424,5 +424,17 @@ export default {
     if (!defaultInstance) throw new Error(NO_INSTANCE_ERROR);
 
     return defaultInstance.getBooleanTweak(name);
+  },
+
+  createStringTweak(name: string, defaultValue: string): Promise<void> {
+    if (!defaultInstance) throw new Error(NO_INSTANCE_ERROR);
+
+    return defaultInstance.createStringTweak(name, defaultValue);
+  },
+
+  getStringTweak(name: string): Promise<string> {
+    if (!defaultInstance) throw new Error(NO_INSTANCE_ERROR);
+
+    return defaultInstance.getStringTweak(name);
   }
 };
