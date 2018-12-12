@@ -212,24 +212,29 @@ export class MixpanelInstance {
   }
 
   createBooleanTweak(name: string, defaultValue: boolean): Promise<void> {
-    if (!this.initialized) throw new Error(NO_INSTANCE_ERROR);
+    if (!this.initialized)
+      throw new Error(uninitializedError("createBooleanTweak"));
 
     return RNMixpanel.createBooleanTweak(name, defaultValue, this.apiToken);
   }
 
   getBooleanTweak(name: string): Promise<boolean> {
-    if (!this.initialized) throw new Error(NO_INSTANCE_ERROR);
+    if (!this.initialized)
+      throw new Error(uninitializedError("getBooleanTweak"));
     return RNMixpanel.getBooleanTweak(name, this.apiToken);
   }
 
   createStringTweak(name: string, defaultValue: string): Promise<void> {
-    if (!this.initialized) throw new Error(NO_INSTANCE_ERROR);
+    if (!this.initialized)
+      throw new Error(uninitializedError("createStringTweak"));
 
     return RNMixpanel.createStringTweak(name, defaultValue, this.apiToken);
   }
 
   getStringTweak(name: string): Promise<string> {
-    if (!this.initialized) throw new Error(NO_INSTANCE_ERROR);
+    if (!this.initialized)
+      throw new Error(uninitializedError("getStringTweak"));
+
     return RNMixpanel.getStringTweak(name, this.apiToken);
   }
 }
