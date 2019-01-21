@@ -1,4 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.kevinejohn.RNMixpanel">
+    package="com.kevinejohn.RNMixpanel">
 
+    <application>
+        <meta-data
+            android:name="com.mixpanel.android.MPConfig.MinimumSessionDuration"
+            android:value="1000" />
+
+    </application>
 </manifest>
