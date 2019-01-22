@@ -39,6 +39,7 @@ RCT_EXPORT_METHOD(sharedInstanceWithToken:(NSString *)apiToken
             return;
         }
         Mixpanel *instance = [Mixpanel sharedInstanceWithToken:apiToken];
+        instance.minimumSessionDuration = 1000;
         // copy instances and add the new instance.  then reassign instances
         NSMutableDictionary *newInstances = [NSMutableDictionary dictionaryWithDictionary:instances];
         [newInstances setObject:instance forKey:apiToken];
